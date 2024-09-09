@@ -21,7 +21,7 @@
 
         <div class="col-sm-12 col-md-4 col-xl-4">
             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                <i class="fa fa-chart-area fa-3x text-primary"></i>
+                <i class="fa fa-outdent fa-3x text-primary"></i>
                 <div class="ms-3">
                     <p class="mb-2">Alat Keluar</p>
                     <h6 class="mb-0">0</h6>
