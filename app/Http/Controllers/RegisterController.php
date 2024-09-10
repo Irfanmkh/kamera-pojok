@@ -44,7 +44,7 @@ class RegisterController extends Controller
         ]);
 
         session()->flash('success', 'sukses didaftarkan!');
-        return redirect()->route('register');
+        return redirect()->route('login');
     }
 
     /**

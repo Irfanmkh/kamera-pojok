@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>DASHMIN - Bootstrap Admin Template</title>
+    <title>Register</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -70,16 +70,16 @@
                             @enderror
 
                             <div class="form-floating mb-3">
-                                <input type="text" name="name" class="form-control" id="floatingText"
-                                    placeholder="Name" value="{{ @old('name') }} ">
-                                <label for="floatingText">Username</label>
+                                <input type="text" class="form-control" name="name" id="floatingInput"
+                                    placeholder="Name">
+                                <label for="floatingInput">Username</label>
                             </div>
                             @error('email')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                             <div class="form-floating mb-3">
                                 <input type="email" class="form-control" name="email" id="floatingInput"
-                                    placeholder="name@example.com value="{{ @old('email') }} "">
+                                    placeholder="name@example.com">
                                 <label for="floatingInput">Email address</label>
                             </div>
                             @error('password')
@@ -87,14 +87,14 @@
                             @enderror
                             <div class="form-floating mb-4">
                                 <input type="password" class="form-control" name="password" id="floatingPassword"
-                                    placeholder="Password" value="{{ @old('password') }} ">
+                                    placeholder="Password">
                                 <label for="floatingPassword">Password</label>
                             </div>
                             <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div class="form-check">
+                                {{-- <div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
                                     <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                                </div>
+                                </div> --}}
                                 <a href="">Forgot Password</a>
                             </div>
                             <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign Up</button>
