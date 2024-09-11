@@ -15,3 +15,6 @@ Route::get('login/logout', [LoginController::class, 'logout'])->name('login.logo
 Route::get('member', function(){
     return view('member.index');
 })->name('member')->middleware('auth');
+Route::get('reg-member', function(){
+    return view('member.register');
+})->name('reg-member')->middleware('auth');

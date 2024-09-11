@@ -1,9 +1,18 @@
 <div class="col-12">
     <div class="bg-light rounded h-100 p-4">
         <div class="navbar-nav align-items-center ms-auto">
-            <img src="{{ asset('assets/img/kamerapojoklogos.png') }}" alt="" style="width: 200px;">
-            <h6 class="mb-4">Data Member</h6>
+            <img src="{{ asset('assets/img/kamerapojoklogos.png') }}" alt="" style="width: 150px;">
+            <h3 class="mb-4">Data Member</h3>
         </div>
+        <div class="text-end">
+            <button type="button" wire:click="register" class="btn btn-primary m-2">
+                <i class="fa fa-plus me-2"></i>Tambah Member
+            </button>
+
+
+        </div>
+        
+        
         
         <div class="table-responsive">
             <table class="table">
@@ -23,39 +32,29 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($member as $data)
                     <tr>
-                        <th scope="row">1</th>
-                        <td>M1</td>
-                        <td>Maman Resing Saputra</td>
-                        <td>12-02-2025</td>
-                        <td>jhon@email.com</td>
-                        <td>089523707403</td>
-                        <td>081230409300</td>
-                        <td>lor</td>
-                        <td>Member</td>
-                        <td>Member</td>
-                        <td>Member</td>
+                        <th scope="row">{{ $loop-iteration }}</th>
+                        <td>{{ $data->kd_member }}</td>
+                        <td>{{ $data->nama }}</td>
+                        <td>{{ $data->tgl_join }}</td>
+                        <td>{{ $data->jenis_member }}</td>
+                        <td>{{ $data->no_hp1 }}</td>
+                        <td>{{ $data->no_hp2 }}</td>
+                        <td>{{ $data->catatan }}</td>
+                        <td>{{ $data->identitas }}</td>
+                        <td>{{ $data->jumlah_trx }}</td>
+                        <td>
+
+                        </td>
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mark@email.com</td>
-                        <td>UK</td>
-                        <td>456</td>
-                        <td>Member</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>jacob@email.com</td>
-                        <td>AU</td>
-                        <td>789</td>
-                        <td>Member</td>
-                    </tr>
+                    @endforeach
+                    
                 </tbody>
             </table>
         </div>
     </div>
+    {{-- @if ($addPage)
+    @include ('member.register')
+    @endif --}}
 </div>
