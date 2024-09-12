@@ -11,41 +11,62 @@
 
 
         </div>
-        
-        
+        @if (session()->has('success'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('success') }}
+
+                            </div>
+                        @endif
         
         <div class="table-responsive">
-            <table class="table">
+            <table class="table" style="width: 100%; table-layout: auto;">
                 <thead>
                     <tr>
                         <th scope="col">No</th>
-                        <th scope="col">kd member</th>
-                        <th scope="col">nama</th>
-                        <th scope="col">tgl join</th>
-                        <th scope="col">jenis</th>
-                        <th scope="col">no.hp 1</th>
-                        <th scope="col">no.hp 2</th>
-                        <th scope="col">catatan</th>
-                        <th scope="col">identitas</th>
-                        <th scope="col">jumlah trx</th>
-                        <th scope="col">aksi</th>
+                        <th scope="col">KD Member</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Tgl. Join</th>
+                        <th scope="col">Jenis</th>
+                        <th scope="col">No.HP 1</th>
+                        <th scope="col">No.HP 2</th>
+                        <th scope="col">Catatan</th>
+                        <th scope="col">Identitas</th>
+                        <th scope="col">Jumlah trx</th>
+                        {{-- <th scope="col">E-KTP</th>
+                        <th scope="col">Facebook</th>
+                        <th scope="col">Instagram</th> --}}
+                        <th scope="col">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($member as $data)
                     <tr>
-                        <th scope="row">{{ $loop-iteration }}</th>
-                        <td>{{ $data->kd_member }}</td>
+                        <th scope="row">{{ $loop->iteration }}</th>
+                        <td >{{ $data->kd_member }}</td>
                         <td>{{ $data->nama }}</td>
                         <td>{{ $data->tgl_join }}</td>
                         <td>{{ $data->jenis_member }}</td>
                         <td>{{ $data->no_hp1 }}</td>
                         <td>{{ $data->no_hp2 }}</td>
                         <td>{{ $data->catatan }}</td>
-                        <td>{{ $data->identitas }}</td>
-                        <td>{{ $data->jumlah_trx }}</td>
                         <td>
+                            <?php
+                            $identitas = json_decode($data->identitas, true); 
 
+                            if (is_array($identitas)) {
+                                echo implode(", ", $identitas);
+                            } else {
+                                echo $data->identitas;
+                            }
+                            ?>
+                        </td>
+                        <td>{{ $data->jumlah_trx }}</td>
+                        {{-- <td>{{ $data->ktp_photo }}</td>
+                        <td>{{ $data->facebook_photo }}</td>
+                        <td>{{ $data->instagram_photo }}</td> --}}
+                        <td class="d-flex gap-2">
+                            <button class="btn btn-primary" wire:click="edit({{ $data->id }})">Edit</button>
+                            <button class="btn btn-danger" wire:click="destroy({{ $data->id }})">Delete</button>
                         </td>
                     </tr>
                     @endforeach

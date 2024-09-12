@@ -1,6 +1,6 @@
 <div class="col-sm-12 col-xl-12">
     <div class="bg-light rounded h-100 p-4">
-        <h4 class="mb-4">Form Pendaftaran Member</h4>
+        <h4 class="mb-4">Update Member</h4>
         @if (session()->has('success'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('success') }}
@@ -244,8 +244,8 @@
             
 
             <div class="text-end">
-                <button type="button" wire:click="store" class="btn btn-primary">
-                    <h5 style="color: white">REGISTER</h5>
+                <button type="button" wire:click="update" class="btn btn-primary">
+                    <h5 style="color: white">Update</h5>
                 </button>
             </div>
         </form>

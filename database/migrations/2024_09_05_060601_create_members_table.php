@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('nama');
             $table->date('tgl_join');
             $table->enum('jenis_member', ['GOLD', 'SILVER']);
-            $table->string('no_hp1')->nullable();
+            $table->string('no_hp1');
             $table->string('no_hp2')->nullable();
-            $table->string('catatan');
+            $table->string('catatan') -> nullable();
             $table->enum('identitas',['E-KTP', 'KTM', 'KP', 'KK', 'AKTA', 'IJAZAH', 'BPKB', 'PASSPORT', 'SIM', 'NPWP', 'BPJS']);
             $table->string('jumlah_trx');
             $table->timestamps();

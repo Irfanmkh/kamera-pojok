@@ -1,6 +1,6 @@
 @extends('layout.template')
 
-@section('title', 'Members')
+@section('title', 'KameraPojok - Members')
 @section('content')
     
 @livewire('MemberComponent')
