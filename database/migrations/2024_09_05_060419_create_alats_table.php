@@ -14,7 +14,6 @@ return new class extends Migration
     {
         Schema::create('alats', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class);
             $table->string('kd_alat')->unique();
             $table->string('jenis_alat');
             $table->string('merk');

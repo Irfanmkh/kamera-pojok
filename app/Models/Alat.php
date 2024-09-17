@@ -9,14 +9,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Alat extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
 
     protected $table='alats';
     protected $primaryKey='id';
-    protected $fillable = ['id', 'user_id', 'kd_alat', 'jenis_alat', 'merk', 'harga_sewa', 'stok', 'kondisi'];
+    protected $fillable = ['id', 'kd_alat', 'jenis_alat', 'merk', 'harga_sewa', 'stok', 'kondisi'];
 
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class);   
-    }
 }

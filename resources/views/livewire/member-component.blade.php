@@ -19,13 +19,13 @@
                         @endif
         
         <div class="table-responsive">
-            <table class="table" style="width: 100%; table-layout: auto;">
+            <table class="table" style="width: 100%; table-layout: auto; white-space: nowrap; text-align: center;">
                 <thead>
                     <tr>
                         <th scope="col">No</th>
                         <th scope="col">KD Member</th>
                         <th scope="col">Nama</th>
-                        <th scope="col">Tgl. Join</th>
+                        <th scope="col" >Tgl. Join</th>
                         <th scope="col">Jenis</th>
                         <th scope="col">No.HP 1</th>
                         <th scope="col">No.HP 2</th>
@@ -44,7 +44,7 @@
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td >{{ $data->kd_member }}</td>
                         <td>{{ $data->nama }}</td>
-                        <td>{{ $data->tgl_join }}</td>
+                        <td>{{ date('d-m-y', strtotime($data->tgl_join)) }}</td>
                         <td>{{ $data->jenis_member }}</td>
                         <td>{{ $data->no_hp1 }}</td>
                         <td>{{ $data->no_hp2 }}</td>

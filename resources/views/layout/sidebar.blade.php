@@ -26,7 +26,7 @@
                     <a href="widget.html" class="nav-item nav-link"><i class="fa fa-shopping-cart me-2"></i>Transaksi</a>
                     <a href="form.html" class="nav-item nav-link"><i class="fa fa-chart-line me-2"></i>Laporan Transaksi</a>
                     <a href="{{ route('member') }}" class="nav-item nav-link"><i class="fa fa-users me-2"></i>Member</a>
-                    <a href="chart.html" class="nav-item nav-link"><i class="fa fa-archive me-2"></i>Inventory</a>
+                    <a href="{{ route('alat') }}" class="nav-item nav-link"><i class="fa fa-archive me-2"></i>Inventory</a>
                 </div>
                 <div class="navbar-nav w-100 mt-5">
                     <a href="{{ route('login.logout') }}" class="nav-item nav-link text-danger">

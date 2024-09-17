@@ -21,7 +21,7 @@
             <div class="row mb-3">
                 <label for="inputTanggal3" class="col-sm-2 col-form-label">Tgl. Join</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" wire:model="tanggaljoin" id="tanggal" data-picker>
+                    <input type="date" class="form-control" wire:model="tanggaljoin" id="tanggal" >
                     
                     @error('tanggaljoin')
                     <span class="text-danger" style="font-size: 0.9rem;">Kolom Tgl. Join tidak boleh kosong!</span>
@@ -252,7 +252,7 @@
     </div>
 </div>
 
-@assets
+{{-- @assets
     <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js" defer></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
 @endassets
@@ -264,4 +264,4 @@
             format: 'DD-MM-YYYY'
         });
     </script>
-@endscript
+@endscript --}}
