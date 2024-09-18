@@ -23,9 +23,9 @@
                 <thead>
                     <tr>
                         <th scope="col">No</th>
+                        <th scope="col" >Nama</th>
                         <th scope="col">KD Alat</th>
                         <th scope="col">Jenis Alat</th>
-                        <th scope="col" >Merk</th>
                         <th scope="col">Harga Sewa</th>
                         <th scope="col">Stok</th>
                         <th scope="col">Kondisi</th>
@@ -36,13 +36,13 @@
                     @foreach ($alat as $data)
                     <tr class="{{ $data->kondisi == 'baik' ? 'table-success' : ($data->kondisi == 'rusak' ? 'table-danger' : '') }}">
                         <th scope="row">{{ $loop->iteration }}</th>
+                        <td>{{ $data->merk }}</td>
                         <td >{{ $data->kd_alat }}</td>
                         <td>{{ $data->jenis_alat }}</td>
-                        <td>{{ $data->merk }}</td>
-                        <td>{{ 'Rp ' . number_format($data->harga_sewa, 0, ',', '.') }}</td>
+                        <td>{{ 'Rp ' . number_format($data->harga_sewa, 0, ',', '.') .' /day' }}</td>
                         <td>{{ $data->stok }}</td>
                         <td>{{ $data->kondisi }}</td>
-                        <td class="d-flex gap-2">
+                        <td class="d-flex justify-content-center align-items-center gap-2">
                             <button class="btn btn-primary" wire:click="edit({{ $data->id }})">Edit</button>
                             <button class="btn btn-danger" wire:click="destroy({{ $data->id }})">Delete</button>
                         </td>

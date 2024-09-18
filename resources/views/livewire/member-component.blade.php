@@ -32,9 +32,9 @@
                         <th scope="col">Catatan</th>
                         <th scope="col">Identitas</th>
                         <th scope="col">Jumlah trx</th>
-                        {{-- <th scope="col">E-KTP</th>
+                        <th scope="col">E-KTP</th>
                         <th scope="col">Facebook</th>
-                        <th scope="col">Instagram</th> --}}
+                        <th scope="col">Instagram</th>
                         <th scope="col">Aksi</th>
                     </tr>
                 </thead>
@@ -61,9 +61,9 @@
                             ?>
                         </td>
                         <td>{{ $data->jumlah_trx }}</td>
-                        {{-- <td>{{ $data->ktp_photo }}</td>
-                        <td>{{ $data->facebook_photo }}</td>
-                        <td>{{ $data->instagram_photo }}</td> --}}
+                        <td>{{ $data->ktp_photo }} <img src="{{ asset('storage/app/public/ktp/' . $data->ktp_photo) }}" alt="ktp"></td>
+                        <td>{{ $data->facebook_photo }} <img src="{{ asset('storage/app/public/fb/' . $data->facebook_photo) }}" alt="fb"></td> </td>
+                        <td>{{ $data->instagram_photo }} <img src="{{ asset('storage/app/public/ig/' . $data->instagram_photo) }}" alt="ig"></td> </td>
                         <td class="d-flex gap-2">
                             <button class="btn btn-primary" wire:click="edit({{ $data->id }})">Edit</button>
                             <button class="btn btn-danger" wire:click="destroy({{ $data->id }})">Delete</button>

@@ -32,22 +32,4 @@ class MemberComponent extends Component
         $this->reset();
     }
 
-    public function edit($id)
-    {
-
-        $cari=Member::find($id);
-        $this->id = $cari->id;
-        $this->nama = $cari->nama;
-        $this->tanggaljoin = $cari->tgl_join;
-        $this->hp1 = $cari->no_hp1;
-        $this->hp2 = $cari->no_hp2;
-        $this->catatan = $cari->catatan;
-        $this->jenis_member = $cari->jenis_member;
-        $this->identitas= $cari->identitas;
-        $this->ktpPhoto = $cari->ktp_photo;
-        $this->facebookPhoto = $cari->facebook_photo;
-        $this->instagramPhoto = $cari->instagram_photo;
-
-        return redirect()->route('update-member');
-    }
 }
