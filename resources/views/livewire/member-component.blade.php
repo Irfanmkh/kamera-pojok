@@ -39,7 +39,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($member as $data)
+                    @forelse ($member as $data)
                     <tr>
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td >{{ $data->kd_member }}</td>
@@ -61,15 +61,21 @@
                             ?>
                         </td>
                         <td>{{ $data->jumlah_trx }}</td>
-                        <td>{{ $data->ktp_photo }} <img src="{{ asset('storage/app/public/ktp/' . $data->ktp_photo) }}" alt="ktp"></td>
-                        <td>{{ $data->facebook_photo }} <img src="{{ asset('storage/app/public/fb/' . $data->facebook_photo) }}" alt="fb"></td> </td>
-                        <td>{{ $data->instagram_photo }} <img src="{{ asset('storage/app/public/ig/' . $data->instagram_photo) }}" alt="ig"></td> </td>
-                        <td class="d-flex gap-2">
+                        <td><button type="button" class="btn btn-link"><a href="{{ asset('storage/ktp/' . $data->ktp_photo) }}" target="blank">Lihat foto</a></button></td>
+                        <td><button type="button" class="btn btn-link"><a href="{{ asset('storage/fb/' . $data->facebook_photo) }}" target="blank">Lihat foto</a></button></td>
+                        <td><button type="button" class="btn btn-link"><a href="{{ asset('storage/ig/' . $data->instagram_photo) }}" target="blank">Lihat foto</a></button> </td>
+                        <td >
                             <button class="btn btn-primary" wire:click="edit({{ $data->id }})">Edit</button>
                             <button class="btn btn-danger" wire:click="destroy({{ $data->id }})">Delete</button>
                         </td>
                     </tr>
-                    @endforeach
+                        
+                    @empty
+                    <tr>
+                        <td colspan="14">Data member</td>
+                    </tr>
+                        
+                    @endforelse
                     
                 </tbody>
             </table>

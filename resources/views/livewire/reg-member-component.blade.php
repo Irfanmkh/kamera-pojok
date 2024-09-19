@@ -11,7 +11,7 @@
             <div class="row mb-3">
                 <label for="inputNama3" class="col-sm-2 col-form-label">Nama</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" wire:model="nama" id="nama">
+                    <input type="text" class="form-control" wire:model="nama" id="nama" >
                     @error('nama')
                     <span class="text-danger" style="font-size: 0.9rem;">Kolom Nama tidak boleh kosong!</span>
                     @enderror
@@ -21,7 +21,7 @@
             <div class="row mb-3">
                 <label for="inputTanggal3" class="col-sm-2 col-form-label">Tgl. Join</label>
                 <div class="col-sm-10">
-                    <input type="date" class="form-control" wire:model="tanggaljoin" id="tanggal" >
+                    <input type="date" class="form-control" wire:model="tanggaljoin" id="tanggal">
                     
                     @error('tanggaljoin')
                     <span class="text-danger" style="font-size: 0.9rem;">Kolom Tgl. Join tidak boleh kosong!</span>

@@ -27,9 +27,20 @@ class MemberComponent extends Component
     public function destroy($id)
     {
         $cari=Member::find($id);
+        unlink(public_path('storage/ktp/' .$cari->ktp_photo));
+        unlink(public_path('storage/fb/' .$cari->facebook_photo));
+        unlink(public_path('storage/ig/' .$cari->instagram_photo));
         $cari->delete();
         session()->flash ('success', 'Sukses Menghapus Data!');
         $this->reset();
+    }
+
+    public function edit($id){
+
+        
+        return redirect()->route('update-member',$id);
+        
+
     }
 
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Livewire\RegAlatComponent;
 use App\Livewire\RegMemberComponent;
+use App\Livewire\UpdateMember;
 use Illuminate\Support\Facades\Route;
 
 
@@ -25,10 +26,11 @@ Route::middleware(['auth'])->group(function () {
         return view('member.register');
     })->name('reg-member');
     
-    Route::get('update-member', function(){
-        return view('member.update');
+    Route::get('update-member/{id}', function($id){
+        return view('member.update', ['id' => $id]);
     })->name('update-member');
     
+    Route::post('update-member', [UpdateMember::class, 'store'])->name('update-member.store');
     Route::post('reg-member', [RegMemberComponent::class, 'store'])->name('reg-member.store');
     
     Route::get('alat', function(){

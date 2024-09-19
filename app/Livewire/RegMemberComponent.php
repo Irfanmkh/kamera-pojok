@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Member;
+use DateTime;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
 use Livewire\WithPagination;
@@ -44,40 +45,35 @@ class RegMemberComponent extends Component
     }
 
     // 3. Buat kode member
-    $kd_member = $prefix . '-' . $newNumber;
+    $this->kd_member = $prefix . '-' . $newNumber;
 
     // 4. Simpan file yang diunggah
-    $filenameWithExt = $this->ktpPhoto->getClientOriginalName();
-    // Get just filename
-    $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+
+
+    $dateTime = new DateTime();
+    $formattedDate = $dateTime->format('Y-m-d');
+    $formatTime = $dateTime->format('H.i.s');
+
     // Get just ext
     $extension = $this->ktpPhoto->getClientOriginalExtension();
     // Filename to store
-    $filenamektp= $filename.'_'.time().'.'.$extension;
+    $filenamektp= $this->kd_member.' ('. $formattedDate .' at '. $formatTime .')'. '.'.$extension;
     $this->ktpPhoto->storeAs('public/ktp', $filenamektp);
 
 
-    $filenameWithExt = $this->facebookPhoto->getClientOriginalName();
-    // Get just filename
-    $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-    // Get just ext
     $extension = $this->facebookPhoto->getClientOriginalExtension();
     // Filename to store
-    $filenamefb= $filename.'_'.time().'.'.$extension;
+    $filenamefb= $this->kd_member.' ('. $formattedDate .' at '. $formatTime .')'. '.'.$extension;
     $this->facebookPhoto->storeAs('public/fb', $filenamefb);
 
 
-    $filenameWithExt = $this->instagramPhoto->getClientOriginalName();
-    // Get just filename
-    $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-    // Get just ext
     $extension = $this->instagramPhoto->getClientOriginalExtension();
     // Filename to store
-    $filenameig= $filename.'_'.time().'.'.$extension;
+    $filenameig= $this->kd_member.' ('. $formattedDate .' at '. $formatTime .')'. '.'.$extension;
     $this->instagramPhoto->storeAs('public/ig', $filenameig);
 
         Member::create([
-            'kd_member' => $kd_member, 
+            'kd_member' => $this->kd_member, 
             'nama' => $this->nama,
             'tgl_join' => $this->tanggaljoin,
             'no_hp1' => $this->hp1,

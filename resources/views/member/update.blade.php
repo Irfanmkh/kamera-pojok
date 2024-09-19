@@ -3,5 +3,6 @@
 @section('title', 'KameraPojok - Update Member')
 @section('content')
     
-@livewire('UpdateMember')
+@livewire('update-member', ['id' => $id])
+
 @endsection

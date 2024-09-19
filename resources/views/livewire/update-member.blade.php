@@ -7,7 +7,7 @@
 
                             </div>
                         @endif
-        <form action{{ route('reg-member.store') }}" method="POST">
+        <form action{{ route('update-member.store') }}" method="POST">
             <div class="row mb-3">
                 <label for="inputNama3" class="col-sm-2 col-form-label">Nama</label>
                 <div class="col-sm-10">
